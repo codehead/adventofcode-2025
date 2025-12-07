@@ -29,4 +29,20 @@ sub solve($file) {
   return $sum;
 }
 
+sub solve2($file) {
+  my $ranges = setup($file);
+  my $sum = 0;
+  foreach my $range (@{$ranges}) {
+    my ($min, $max) = @{$range};
+    print "- $min-$max\n";
+    for (my $i = $min; $i <= $max; ++$i) {
+      if ($i =~ m/^(?<num>\d+)(\k<num>){1,}$/) {
+        print "  $i is invalid\n";
+        $sum += $i;
+      }
+    }
+  }
+  return $sum;
+}
+
 1;
