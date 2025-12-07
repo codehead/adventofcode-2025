@@ -4,8 +4,9 @@ use warnings;
 use experimental qw(signatures);
 no warnings qw(experimental::signatures);
 use Exporter 'import';
+use Data::Dumper qw/Dumper/;
 
-our @EXPORT_OK = qw(read_lines trim);
+our @EXPORT_OK = qw(read_lines trim Dumper);
 our %EXPORT_TAGS = (all => \@EXPORT_OK);
 
 sub trim($str) {
